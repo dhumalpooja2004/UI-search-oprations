@@ -32,6 +32,28 @@
                 "Gaytri",
                 "Priyanka"
             ]
+            const studentsContainer = document.getElementById("students-container");
+
+        students.forEach((stud) => {
+            studentsContainer.innerHTML += `<div class="student-card">${stud}</div>`
+        })
+
+        function loadResult() {
+            const inputElement = document.getElementById("search");
+            const searchText = inputElement.value.toLowerCase();
+
+            studentsContainer.innerHTML = '';
+
+            const filterStudents = students.filter((stud) => {
+                if (stud.toLowerCase().includes(searchText)) {
+                    return true;
+                }
+            })
+            filterStudents.forEach((stud) => {
+                studentsContainer.innerHTML += `<div class="student-card">${stud}</div>`
+            })
+        }
+
     </script>
 </body>
 </html>
